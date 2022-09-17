@@ -2,6 +2,9 @@ class Grid
 {
   //cell array
   Cell[][] cells;
+  
+  //a copy of the actual cell grid to read for changes in all cells without changing other cells first
+  Cell[][] cellBuffer;
 
   //grid dimensions
   int gw, gh;
@@ -44,6 +47,9 @@ class Grid
   //iterate all cells
   void Iterate()
   {
+    //make copy of cell array used by neighbouring functions
+    cellBuffer = cells;
+    
     for (int i = 0; i < w; i++)
     {
       for (int j = 0; j < h; j++)

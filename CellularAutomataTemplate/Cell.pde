@@ -82,28 +82,28 @@ class Cell
     //check all neighbours
     //left
     if (x > 0) {
-      if (world.cells[x-1][y].active) {
+      if (world.cellBuffer[x-1][y].active) {
         NBCount++;
       }
     }
 
     //up
     if (y > 0) {
-      if (world.cells[x][y-1].active) {
+      if (world.cellBuffer[x][y-1].active) {
         NBCount++;
       }
     }
 
     //right
     if (x < world.gw-1) {
-      if (world.cells[x+1][y].active) {
+      if (world.cellBuffer[x+1][y].active) {
         NBCount++;
       }
     }
 
     //down
     if (y < world.gh-1) {
-      if (world.cells[x][y+1].active) {
+      if (world.cellBuffer[x][y+1].active) {
         NBCount++;
       }
     }
@@ -120,56 +120,56 @@ class Cell
     //check all neighbours
     //left
     if (x > 0) {
-      if (world.cells[x-1][y].active) {
+      if (world.cellBuffer[x-1][y].active) {
         NBCount++;
       }
     }
 
     //up
     if (y > 0) {
-      if (world.cells[x][y-1].active) {
+      if (world.cellBuffer[x][y-1].active) {
         NBCount++;
       }
     }
 
     //right
     if (x < world.gw-1) {
-      if (world.cells[x+1][y].active) {
+      if (world.cellBuffer[x+1][y].active) {
         NBCount++;
       }
     }
 
     //down
     if (y < world.gh-1) {
-      if (world.cells[x][y+1].active) {
+      if (world.cellBuffer[x][y+1].active) {
         NBCount++;
       }
     }
 
     //top left
     if (x > 0 && y > 0) {
-      if (world.cells[x-1][y-1].active) {
+      if (world.cellBuffer[x-1][y-1].active) {
         NBCount++;
       }
     }
 
     //top right
     if ( x < world.gw-1 && y > 0) {
-      if (world.cells[x+1][y-1].active) {
+      if (world.cellBuffer[x+1][y-1].active) {
         NBCount++;
       }
     }
 
     //bottom left
     if (x > 0 && y < world.gh-1) {
-      if (world.cells[x-1][y+1].active) {
+      if (world.cellBuffer[x-1][y+1].active) {
         NBCount++;
       }
     }
 
     //bottom right
     if ( x < world.gw-1 && y < world.gh-1) {
-      if (world.cells[x+1][y+1].active) {
+      if (world.cellBuffer[x+1][y+1].active) {
         NBCount++;
       }
     }
