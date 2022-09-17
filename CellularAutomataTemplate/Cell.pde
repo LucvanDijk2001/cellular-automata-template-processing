@@ -32,6 +32,23 @@ class Cell
     //=================EXAMPLE=================//
   }
 
+  //copy constructor cause java don't like copying things
+  Cell(int _x, int _y, float _w, float _h, Grid p, boolean a)
+  {
+    world = p;
+    x = _x;
+    y = _y;
+    cw = _w;
+    ch = _h;
+    active = a;
+  }
+
+  //copy function
+  Cell copy()
+  {
+    return new Cell(x, y, cw, ch, world, active);
+  }
+
   //frame update in case you would like to use this for some reason
   void Update()
   {
@@ -41,27 +58,9 @@ class Cell
   void Iterate()
   {
     active = !active;
+    //GameOfLife(); //---------EXAMPLE
+    //RandomGeneration(); //---EXAMPLE
   }
-
-  //=================RANDOM GENERATION EXAMPLE=================//
-  /*
-  void Iterate()
-  {
-    int neighbours = NeighbourCountSide(); //get neighbour count for only 4 main sides (no diagonals)
-
-    //ruleset
-    if (neighbours >= 3)
-    {
-      active = true;
-    }
-
-    if (neighbours <= 1)
-    {
-      active = false;
-    }
-  }
-  */
-  //=================RANDOM GENERATION EXAMPLE=================//
 
   //drawing the cell
   void Show()
@@ -176,4 +175,41 @@ class Cell
 
     return NBCount;
   }
+
+  //===================GAME OF LIFE EXAMPLE====================//
+  void GameOfLife()
+  {
+    int neighbours = NeighbourCountAll();
+
+    if (!active)
+    {
+      if (neighbours == 3) {
+        active = true;
+      }
+    } else
+    {
+      if (neighbours < 2 || neighbours > 3) {
+        active = false;
+      }
+    }
+  }
+  //===================GAME OF LIFE EXAMPLE====================//
+
+  //=================RANDOM GENERATION EXAMPLE=================//
+  void RandomGeneration()
+  {
+    int neighbours = NeighbourCountSide(); //get neighbour count for only 4 main sides (no diagonals)
+
+    //ruleset
+    if (neighbours >= 3)
+    {
+      active = true;
+    }
+
+    if (neighbours <= 1)
+    {
+      active = false;
+    }
+  }
+  //=================RANDOM GENERATION EXAMPLE=================//
 }

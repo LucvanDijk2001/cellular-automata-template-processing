@@ -23,7 +23,7 @@ Enjoy
 */
 
 int w=50, h=50;              //grid dimensions
-float iterationSpeed = 0.5; //speed of iterations (int seconds)
+float iterationSpeed = 0.3; //speed of iterations (int seconds)
 float timer;                //countdown clock for iterations
 Grid grid;                  //world
 
